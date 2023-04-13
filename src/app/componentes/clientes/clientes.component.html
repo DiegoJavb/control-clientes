@@ -91,13 +91,36 @@
           aria-label="Close"
         ></button>
       </div>
-      <form>
+      <!-- Mensajes de Flash Message -->
+      <flash-messages></flash-messages>
+      <form #clienteForm="ngForm" (ngSubmit)="agregar(clienteForm)">
         <div class="modal-body">
           <div class="row">
             <div class="col">
               <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input class="form-control" type="text" name="nombre" />
+                <input
+                  class="form-control"
+                  type="text"
+                  name="nombre"
+                  #nombre="ngModel"
+                  [(ngModel)]="cliente.nombre"
+                  [ngClass]="{ 'is-invalid': nombre.errors && nombre.touched }"
+                  required
+                  minlength="2"
+                />
+                <div
+                  [hidden]="!nombre.errors?.['required']"
+                  class="invalid-feedback"
+                >
+                  Nombre requerido
+                </div>
+                <div
+                  [hidden]="!nombre.errors?.['minlength']"
+                  class="invalid-feedback"
+                >
+                  Debe contener al menos 2 caracteres
+                </div>
               </div>
             </div>
             <div class="col">
