@@ -23,6 +23,7 @@ import { ConfiguracionComponent } from './componentes/configuracion/configuracio
 import { NoEncontradoComponent } from './componentes/no-encontrado/no-encontrado.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { ClienteServicio } from './servicios/cliente.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
     FormsModule,
     FlashMessagesModule.forRoot(),
   ],
-  providers: [],
+  providers: [ClienteServicio],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
