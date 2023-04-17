@@ -89,6 +89,7 @@
           class="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
+          #botonCerrar
         ></button>
       </div>
       <!-- Mensajes de Flash Message -->
@@ -165,8 +166,8 @@
                 'is-invalid': saldo.errors && saldo.touched
               }"
               required
-              />
-              <!-- pattern="^([1-9]\d*)+([.][0-9]+)?$" -->
+            />
+            <!-- pattern="^([1-9]\d*)+([.][0-9]+)?$" -->
             <div
               [hidden]="!saldo.errors?.['required']"
               class="invalid-feedback"
