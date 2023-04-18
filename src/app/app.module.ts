@@ -24,6 +24,7 @@ import { NoEncontradoComponent } from './componentes/no-encontrado/no-encontrado
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { ClienteServicio } from './servicios/cliente.service';
+import { LoginService } from './servicios/login.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { ClienteServicio } from './servicios/cliente.service';
     FormsModule,
     FlashMessagesModule.forRoot(),
   ],
-  providers: [ClienteServicio],
+  providers: [ClienteServicio, LoginService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
