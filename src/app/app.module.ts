@@ -3,7 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 // para uso de firebase
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import {
+  AngularFirestoreModule,
+  SETTINGS,
+} from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FormsModule } from '@angular/forms';
 // Modulos
@@ -22,6 +25,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { ClienteServicio } from './servicios/cliente.service';
 import { LoginService } from './servicios/login.service';
 import { AuthGuard } from './guardianes/auth.guard';
+import { ConfiguracionGuard } from './guardianes/configuracion.guard';
+import { ConfiguracionService } from './servicios/configuracion.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +50,14 @@ import { AuthGuard } from './guardianes/auth.guard';
     FormsModule,
     FlashMessagesModule.forRoot(),
   ],
-  providers: [ClienteServicio, LoginService, AuthGuard],
+  providers: [
+    ClienteServicio,
+    LoginService,
+    AuthGuard,
+    ConfiguracionService,
+    ConfiguracionGuard,
+    { provide: SETTINGS, useValue: {} },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
